@@ -25,3 +25,12 @@ Each template is rendered by a custom function that uses the templates 'name'. A
 {{end}}
 
 ```
+I always use `autocomplete="off"` on inputs.
+I don't like placeholders that are too obvious. Always prefer labels to placeholders inside forms.
+On login forms always add a block with '{{.Error}}' that will contain an error message.
+I prefer inline confirmation on "dangerous" actions like deletions, so instead of using modals I'd do something like this
+```html
+<button type="submit" onclick="return confirm('Delete {{.Name}}?')"
+```
+I always limit Javascript but in case we need reactivity I'd reach for AlpineJS. I also embed the whole script inside my binary and serve it as javascript at `/alpinejs` so in case
+we need to use Alpine just include the script tag pointing to that path.
